@@ -40,14 +40,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@main
-
+    
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(curl -fsSL github.com/alexcdever/homelede/blob/main/compile-tools)
+        sudo -E apt-get -qq install $(curl -fsSL raw.githubusercontent.com/alexcdever/homelede/main/compile-tools)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
