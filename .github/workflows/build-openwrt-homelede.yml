@@ -44,10 +44,10 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
-        sudo apt-get update
-        sudo apt-get install $(curl -fsSL raw.githubusercontent.com/alexcdever/homelede/main/compile-tools) -y
-        sudo apt-get autoremove --purge -y
-        sudo apt-get clean -y
+        sudo apt update
+        sudo apt install $(curl -fsSL raw.githubusercontent.com/alexcdever/homelede/main/compile-tools) -y
+        sudo apt autoremove --purge -y
+        sudo apt clean -y
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
@@ -59,7 +59,7 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
-        git checkout v2021.03.20
+        git checkout v2021.06.13
 
 #     - name: SSH connection to Actions
 #       uses: P3TERX/ssh2actions@v1.0.0
